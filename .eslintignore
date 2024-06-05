@@ -1,0 +1,10 @@
+/config-overrides.js
+dist
+node_modules
+.eslintrc.cjs
+*.config.js
+*.config.ts
+*.conf.js
+**/*.js
+**/*.d.ts
+stories

@@ -4,9 +4,12 @@ module.exports = {
   ignorePatterns: ['dist', 'node_modules', '*.json'],
   plugins: ['@stylistic', '@typescript-eslint', 'import', 'react-hooks'],
   parser: '@typescript-eslint/parser',
+  parserOptions: {
+    project: '**/tsconfig.json',
+  },
+
   rules: {
     'newline-before-return': ['error'],
-    '@stylistic/indent': ['error', 4],
     '@stylistic/linebreak-style': ['error', 'unix'],
     '@stylistic/quotes': ['error', 'single'],
     '@stylistic/eol-last': ['error'],
@@ -29,4 +32,6 @@ module.exports = {
     'no-console': 'warn',
     'import/no-cycle': 'error',
   },
+
+  extends: ['plugin:storybook/recommended'],
 }
