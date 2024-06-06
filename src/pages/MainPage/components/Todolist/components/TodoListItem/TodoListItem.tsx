@@ -34,7 +34,13 @@ export const TodoListItem: FC<TodoListItemProps> = ({ todo, onClickRemoveTodo, o
                 onChange={handleTodoListItemCheckboxClick}
             />
             {isEditing
-                ? <Input autoFocus value={inputValue} onChange={handleInputChange} onKeyDown={handleEnterPress} />
+                ? <Input
+                    autoFocus
+                    value={inputValue}
+                    onChange={handleInputChange}
+                    onKeyDown={handleEnterPress}
+                    onBlur={handleTodoListItemBlur}
+                />
                 : <TodoListItemTextBlock onClick={handleTodoListItemClick}>
                     <TodoListItemText isDone={todo.isDone}>{todo.text}</TodoListItemText>
                 </TodoListItemTextBlock>}

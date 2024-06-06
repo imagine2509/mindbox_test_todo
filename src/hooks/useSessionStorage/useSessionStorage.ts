@@ -1,34 +1,38 @@
-import { useState } from 'react'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useCallback, useState } from 'react';
 
 type UseSessionStorageProps = {
-  key: string
-  value: JSON
-}
+  key: string;
+  defaultValue: any[];
+};
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export const useSessionStorage = ({ key, value }: UseSessionStorageProps) => {
-  const [storedValue, setStoredValue] = useState(() => {
+export const useSessionStorage = ({
+  key,
+  defaultValue,
+}: UseSessionStorageProps): [any[], (newValue: any[]) => void] => {
+  const [storedValue, setStoredValue] = useState<any[]>(() => {
     try {
-      const value = window.sessionStorage.getItem(key)
-
-      if (value) {
-        return JSON.parse(value)
+      const item = window.sessionStorage.getItem(key);
+      if (item) {
+        return JSON.parse(item);
       } else {
-        window.sessionStorage.setItem(key, JSON.stringify(value))
+        window.sessionStorage.setItem(key, JSON.stringify(defaultValue));
 
-        return value
+        return defaultValue;
       }
-    } catch (err) {
-      return value
+    } catch (error) {
+      throw new Error('Error reading from sessionStorage');
     }
-  })
+  });
 
-  const setValue = (newValue: JSON): void => {
+  const setValue = useCallback((newValue: any[]): void => {
     try {
-      window.sessionStorage.setItem(key, JSON.stringify(newValue))
-    } catch (err) { }
-    setStoredValue(newValue)
-  }
+      window.sessionStorage.setItem(key, JSON.stringify(newValue));
+    } catch (error) {
+      throw new Error('Error writing to sessionStorage');
+    }
+    setStoredValue(newValue);
+  }, [key])
 
-  return [storedValue, setValue]
-}
+  return [storedValue, setValue];
+};

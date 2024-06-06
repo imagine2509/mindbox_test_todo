@@ -7,9 +7,11 @@ export const StyledTodolistWrapper = styled('div')(() => ({
   alignItems: 'center',
   justifyContent: 'center',
   backgroundColor: 'white',
-  border: '1px solid gray',
-  borderBottom: '5px double gray',
-  padding: '10px',
+  border: '1px solid lightgrey',
+  borderBottom: '5px double lightgrey',
+  paddingRight: '10px',
+  paddingLeft: '10px',
+  paddingBottom: '5px',
 
   ['@media (max-width:768px)']: {
     width: '100%',

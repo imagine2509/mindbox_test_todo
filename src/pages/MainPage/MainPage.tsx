@@ -6,7 +6,7 @@ import { useMainPage } from './hooks/useMainPage';
 
 export const MainPage: FC = () => {
     const {
-        todoList,
+        todos,
         newTodoInputValue,
         onChangeNewTodoInput,
         onClickAddTodo,
@@ -22,7 +22,7 @@ export const MainPage: FC = () => {
                 handleInputChange={onChangeNewTodoInput}
             />
             <Todolist
-                todos={todoList}
+                todos={todos}
                 onClickRemoveTodo={onClickRemoveTodo}
                 onClickToggleTodo={onClickToggleTodo}
                 onClickUpdateTodo={onClickUpdateTodo}

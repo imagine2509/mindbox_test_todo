@@ -7,7 +7,6 @@ export const useMainPage = () => {
   const { todos, addTodo, removeTodo, toggleTodo, updateTodo } =
     useContext(TodosContext)
 
-  const [todoList, setTodoList] = useState<Todo[]>(todos)
   const [newTodoInputValue, setNewTodoInputValue] = useState('')
 
   const onClickAddTodo = useCallback(() => {
@@ -17,32 +16,32 @@ export const useMainPage = () => {
       isDone: false,
     }
     addTodo(newTodo)
-    setTodoList([...todos])
-  }, [newTodoInputValue, addTodo, todos])
+    setNewTodoInputValue('')
+  }, [newTodoInputValue, todos, addTodo])
 
-  const onClickRemoveTodo = useCallback((id: number) => {
-    removeTodo(id)
-    setTodoList([...todos])
-  }, [removeTodo, todos])
+  const onClickRemoveTodo = useCallback(
+    (id: number) => {
+      removeTodo(id)
+    },
+    [removeTodo])
 
-  const onClickToggleTodo = useCallback((id: number) => {
-    toggleTodo(id)
-    setTodoList([...todos])
-  }, [todos, toggleTodo])
+  const onClickToggleTodo = useCallback(
+    (id: number) => {
+      toggleTodo(id)
+    }, [toggleTodo])
 
   const onChangeNewTodoInput = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       setNewTodoInputValue(event.target.value)
-    },
-    [])
+    }, [])
 
-  const onClickUpdateTodo = useCallback((id: number, text: string) => {
-    updateTodo(id, text)
-    setTodoList([...todos])
-  }, [todos, updateTodo])
+  const onClickUpdateTodo = useCallback(
+    (id: number, text: string) => {
+      updateTodo(id, text)
+    }, [updateTodo])
 
   return {
-    todoList,
+    todos,
     newTodoInputValue,
     onClickAddTodo,
     onClickRemoveTodo,

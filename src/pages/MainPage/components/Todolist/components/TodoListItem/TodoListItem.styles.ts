@@ -6,10 +6,11 @@ interface TodoListItemTextProps {
 
 export const TodoListItemContainer = styled('div')(() => ({
   width: '100%',
+  height: '50px',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  border: '1px solid lightgrey',
+  borderBottom: '1px solid lightgrey',
 }))
 
 export const TodoListItemTextBlock = styled('div')(() => ({

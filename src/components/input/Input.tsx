@@ -1,8 +1,9 @@
-import { TextField, TextFieldProps } from '@mui/material'
+import { TextFieldProps } from '@mui/material'
 import { FC } from 'react'
+import { StyledInput } from './Input.styles'
 
 export const Input: FC<TextFieldProps> = (props) => {
     return (
-        <TextField fullWidth {...props} />
+        <StyledInput fullWidth {...props} variant='filled' />
     )
 }
