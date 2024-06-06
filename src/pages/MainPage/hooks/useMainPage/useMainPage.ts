@@ -10,14 +10,17 @@ export const useMainPage = () => {
   const [newTodoInputValue, setNewTodoInputValue] = useState('')
 
   const onClickAddTodo = useCallback(() => {
+    if (!newTodoInputValue) {
+      return
+    }
     const newTodo: Todo = {
-      id: todos.length,
+      id: Date.now(),
       text: newTodoInputValue,
       isDone: false,
     }
     addTodo(newTodo)
     setNewTodoInputValue('')
-  }, [newTodoInputValue, todos, addTodo])
+  }, [newTodoInputValue, addTodo])
 
   const onClickRemoveTodo = useCallback(
     (id: number) => {

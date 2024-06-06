@@ -1,7 +1,7 @@
 import { styled } from '@mui/material'
 
 export const NewTodoInputFieldContainer = styled('div')(() => ({
-  width: '70%',
+  width: '100%',
   display: 'flex',
   gap: '10px',
   alignItems: 'center',
@@ -10,9 +10,6 @@ export const NewTodoInputFieldContainer = styled('div')(() => ({
   borderRadius: '5px',
   padding: '10px',
   margin: '10px',
+  marginBottom: 0,
   backgroundColor: 'white',
-
-  ['@media (max-width:768px)']: {
-    width: '100%',
-  },
 }))

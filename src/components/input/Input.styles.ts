@@ -24,4 +24,8 @@ export const StyledInput = styled(TextField)(() => ({
     '& .MuiFilledInput-input:focus': {
         outline: 'none',
     },
+
+    '& .MuiFilledInput-input:active': {
+        backgroundColor: 'transparent',
+    },
 }))

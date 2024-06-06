@@ -3,16 +3,18 @@ import { TodosContext } from '../../../../../../context'
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const useNewTodoInputField = () => {
-  const { todos, addTodo } = useContext(TodosContext)
+  const { addTodo } = useContext(TodosContext)
 
   const [inputValue, setInputValue] = useState('')
 
   const onClickSaveTodo = (): void => {
-    addTodo({
-      id: todos.length,
-      text: inputValue,
-      isDone: false,
-    })
+    if (inputValue) {
+      addTodo({
+        id: Date.now(),
+        text: inputValue,
+        isDone: false,
+      })
+    }
   }
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>): void => {

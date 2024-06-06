@@ -19,6 +19,7 @@ export const TodoListItemTextBlock = styled('div')(() => ({
   justifyContent: 'flex-start',
   width: '100%',
   padding: '10px',
+  cursor: 'text',
 }))
 
 export const TodoListItemText = styled('span')<TodoListItemTextProps>(

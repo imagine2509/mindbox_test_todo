@@ -5,7 +5,7 @@ import { ToggleButton } from './components/ToggleButton'
 interface ToggleButtonProps extends MuiToggleButtonProps {
     value: string
     buttonTextOptions: string[]
-    handleChange: (event: MouseEvent<HTMLElement>, newValue: string) => void
+    handleChange: (event: MouseEvent<HTMLElement>, newValue: 'All' | 'Active' | 'Completed') => void
 }
 
 export const ToggleButtons: FC<ToggleButtonProps> = ({ value, buttonTextOptions, handleChange }): JSX.Element => {
