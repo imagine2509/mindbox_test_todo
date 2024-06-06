@@ -37,7 +37,6 @@ export const TodosProvider: FC<TodosContextProviderProps> = ({ children }) => {
     if (storedTodos) {
       setTodos([...JSON.parse(storedTodos)])
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const addTodo = (todo: Todo): void => {
