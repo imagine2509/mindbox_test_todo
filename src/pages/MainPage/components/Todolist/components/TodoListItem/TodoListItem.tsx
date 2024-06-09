@@ -32,7 +32,6 @@ export const TodoListItem: FC<TodoListItemProps> = ({ todo, onClickRemoveTodo, o
             <Checkbox
                 checked={isDone}
                 onChange={handleTodoListItemCheckboxClick}
-                data-testid='todo-checkbox'
             />
             {isEditing
                 ? <Input
@@ -41,7 +40,7 @@ export const TodoListItem: FC<TodoListItemProps> = ({ todo, onClickRemoveTodo, o
                     onChange={handleInputChange}
                     onKeyDown={handleEnterPress}
                     onBlur={handleTodoListItemBlur}
-                    data-testid="todo-input"
+                    inputProps={{ 'data-testid': 'todo-input' }}
                 />
                 : <TodoListItemTextBlock onClick={handleTodoListItemClick} data-testid="todo-text">
                     <TodoListItemText isDone={todo.isDone}>{todo.text}</TodoListItemText>

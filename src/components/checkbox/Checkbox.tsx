@@ -6,7 +6,7 @@ import CircleUnchecked from '@mui/icons-material/RadioButtonUnchecked';
 
 export const Checkbox: FC<CheckboxProps> = (props) => {
     return (
-        <StyledCheckbox {...props} disableRipple icon={<CircleUnchecked />} checkedIcon={<CircleChecked />} />
+        <StyledCheckbox {...props} disableRipple icon={<CircleUnchecked />} checkedIcon={<CircleChecked />} inputProps={{ 'type': 'checkbox' }} />
     )
 }
 
