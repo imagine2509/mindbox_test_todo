@@ -5,6 +5,8 @@ node_modules
 *.config.js
 *.config.ts
 *.conf.js
+*.config.cjs
 **/*.js
 **/*.d.ts
 src/stories
+setupTests.*
